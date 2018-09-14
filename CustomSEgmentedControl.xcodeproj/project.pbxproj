@@ -16,6 +16,13 @@
 		5AF4583A2010AC0300BEB00E /* VC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF458392010AC0300BEB00E /* VC1.swift */; };
 		5AF4583C2010AC0D00BEB00E /* VC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF4583B2010AC0D00BEB00E /* VC2.swift */; };
 		5AF4583E2010AC1600BEB00E /* VC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF4583D2010AC1600BEB00E /* VC3.swift */; };
+		DC27D535214BA18900AE1B88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC27D534214BA18900AE1B88 /* AppDelegate.m */; };
+		DC27D538214BA18900AE1B88 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC27D537214BA18900AE1B88 /* ViewController.m */; };
+		DC27D53B214BA18900AE1B88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC27D539214BA18900AE1B88 /* Main.storyboard */; };
+		DC27D53D214BA18C00AE1B88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC27D53C214BA18C00AE1B88 /* Assets.xcassets */; };
+		DC27D540214BA18C00AE1B88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC27D53E214BA18C00AE1B88 /* LaunchScreen.storyboard */; };
+		DC27D543214BA18C00AE1B88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC27D542214BA18C00AE1B88 /* main.m */; };
+		DC27D549214BA1DB00AE1B88 /* CustomSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DC27D548214BA1DB00AE1B88 /* CustomSegmentedControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +37,29 @@
 		5AF458392010AC0300BEB00E /* VC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC1.swift; sourceTree = "<group>"; };
 		5AF4583B2010AC0D00BEB00E /* VC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC2.swift; sourceTree = "<group>"; };
 		5AF4583D2010AC1600BEB00E /* VC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC3.swift; sourceTree = "<group>"; };
+		DC27D531214BA18900AE1B88 /* CustomSegmentedControlOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomSegmentedControlOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC27D533214BA18900AE1B88 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DC27D534214BA18900AE1B88 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DC27D536214BA18900AE1B88 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DC27D537214BA18900AE1B88 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DC27D53A214BA18900AE1B88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DC27D53C214BA18C00AE1B88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC27D53F214BA18C00AE1B88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DC27D541214BA18C00AE1B88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC27D542214BA18C00AE1B88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DC27D547214BA1DB00AE1B88 /* CustomSegmentedControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomSegmentedControl.h; sourceTree = "<group>"; };
+		DC27D548214BA1DB00AE1B88 /* CustomSegmentedControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomSegmentedControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		5AF4581F2010949F00BEB00E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC27D52E214BA18900AE1B88 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -47,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				5AF458242010949F00BEB00E /* CustomSEgmentedControl */,
+				DC27D532214BA18900AE1B88 /* CustomSegmentedControlOC */,
 				5AF458232010949F00BEB00E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				5AF458222010949F00BEB00E /* CustomSEgmentedControl.app */,
+				DC27D531214BA18900AE1B88 /* CustomSegmentedControlOC.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -74,6 +102,24 @@
 				5AF4583D2010AC1600BEB00E /* VC3.swift */,
 			);
 			path = CustomSEgmentedControl;
+			sourceTree = "<group>";
+		};
+		DC27D532214BA18900AE1B88 /* CustomSegmentedControlOC */ = {
+			isa = PBXGroup;
+			children = (
+				DC27D533214BA18900AE1B88 /* AppDelegate.h */,
+				DC27D534214BA18900AE1B88 /* AppDelegate.m */,
+				DC27D536214BA18900AE1B88 /* ViewController.h */,
+				DC27D537214BA18900AE1B88 /* ViewController.m */,
+				DC27D539214BA18900AE1B88 /* Main.storyboard */,
+				DC27D53C214BA18C00AE1B88 /* Assets.xcassets */,
+				DC27D53E214BA18C00AE1B88 /* LaunchScreen.storyboard */,
+				DC27D541214BA18C00AE1B88 /* Info.plist */,
+				DC27D542214BA18C00AE1B88 /* main.m */,
+				DC27D547214BA1DB00AE1B88 /* CustomSegmentedControl.h */,
+				DC27D548214BA1DB00AE1B88 /* CustomSegmentedControl.m */,
+			);
+			path = CustomSegmentedControlOC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +142,23 @@
 			productReference = 5AF458222010949F00BEB00E /* CustomSEgmentedControl.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DC27D530214BA18900AE1B88 /* CustomSegmentedControlOC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC27D546214BA18C00AE1B88 /* Build configuration list for PBXNativeTarget "CustomSegmentedControlOC" */;
+			buildPhases = (
+				DC27D52D214BA18900AE1B88 /* Sources */,
+				DC27D52E214BA18900AE1B88 /* Frameworks */,
+				DC27D52F214BA18900AE1B88 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CustomSegmentedControlOC;
+			productName = CustomSegmentedControlOC;
+			productReference = DC27D531214BA18900AE1B88 /* CustomSegmentedControlOC.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -108,6 +171,10 @@
 				TargetAttributes = {
 					5AF458212010949F00BEB00E = {
 						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					DC27D530214BA18900AE1B88 = {
+						CreatedOnToolsVersion = 9.4.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -126,6 +193,7 @@
 			projectRoot = "";
 			targets = (
 				5AF458212010949F00BEB00E /* CustomSEgmentedControl */,
+				DC27D530214BA18900AE1B88 /* CustomSegmentedControlOC */,
 			);
 		};
 /* End PBXProject section */
@@ -138,6 +206,16 @@
 				5AF458302010949F00BEB00E /* LaunchScreen.storyboard in Resources */,
 				5AF4582D2010949F00BEB00E /* Assets.xcassets in Resources */,
 				5AF4582B2010949F00BEB00E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC27D52F214BA18900AE1B88 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC27D540214BA18C00AE1B88 /* LaunchScreen.storyboard in Resources */,
+				DC27D53D214BA18C00AE1B88 /* Assets.xcassets in Resources */,
+				DC27D53B214BA18900AE1B88 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +235,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DC27D52D214BA18900AE1B88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC27D538214BA18900AE1B88 /* ViewController.m in Sources */,
+				DC27D543214BA18C00AE1B88 /* main.m in Sources */,
+				DC27D535214BA18900AE1B88 /* AppDelegate.m in Sources */,
+				DC27D549214BA1DB00AE1B88 /* CustomSegmentedControl.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -172,6 +261,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				5AF4582F2010949F00BEB00E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DC27D539214BA18900AE1B88 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC27D53A214BA18900AE1B88 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DC27D53E214BA18C00AE1B88 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC27D53F214BA18C00AE1B88 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -316,6 +421,42 @@
 			};
 			name = Release;
 		};
+		DC27D544214BA18C00AE1B88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4N44FM69KH;
+				INFOPLIST_FILE = CustomSegmentedControlOC/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.oeoly.CustomSegmentedControlOC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DC27D545214BA18C00AE1B88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4N44FM69KH;
+				INFOPLIST_FILE = CustomSegmentedControlOC/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.oeoly.CustomSegmentedControlOC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -333,6 +474,15 @@
 			buildConfigurations = (
 				5AF458352010949F00BEB00E /* Debug */,
 				5AF458362010949F00BEB00E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC27D546214BA18C00AE1B88 /* Build configuration list for PBXNativeTarget "CustomSegmentedControlOC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC27D544214BA18C00AE1B88 /* Debug */,
+				DC27D545214BA18C00AE1B88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
