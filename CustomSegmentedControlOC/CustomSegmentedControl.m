@@ -20,11 +20,19 @@
         _borderColor = UIColor.clearColor;
         _commaSeperatedButtonTitles = @"";
         _textColor = UIColor.lightGrayColor;
+        _fontSize  = 15;
         _selectorColor = UIColor.darkGrayColor;
         _selectorTextColor = UIColor.greenColor;
+        _btStyle = BUTTONSTYLE_FONTWITHUNDERLINE;
         [self updateView];
     }
     
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame style:(BUTTONSTYLE)style {
+    self = [self initWithFrame:frame];
+    _btStyle = style;
     return self;
 }
 
@@ -36,7 +44,7 @@
     
     NSArray *buttonTitles = [_commaSeperatedButtonTitles componentsSeparatedByString:@","];
     for (NSString *title in buttonTitles) {
-        UIButton *bt = [UIButton buttonWithType:UIButtonTypeSystem];
+        UIButton *bt = [self configButtons];
         [bt setTitle:title forState:UIControlStateNormal];
         [bt setTitleColor:_textColor forState:UIControlStateNormal];
         [bt addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -54,21 +62,34 @@
     stackView.axis = UILayoutConstraintAxisHorizontal;
     stackView.alignment = UIStackViewAlignmentFill;
     stackView.distribution = UIStackViewDistributionFillEqually;
-    stackView.spacing = 0;
+    
+    CGFloat spacing = 0;
+    if (_btStyle == BUTTONSTYLE_ELLIPSE) {
+        spacing = 20;
+        _selector.hidden = true;
+        UIButton *btFirst = _buttons[0];
+        btFirst.backgroundColor = _selectorColor;
+        btFirst.layer.borderWidth = 0;
+    }
+    
+    stackView.spacing = spacing;
     [self addSubview:stackView];
     
     stackView.translatesAutoresizingMaskIntoConstraints = false;
     
     [[stackView.topAnchor constraintEqualToAnchor:self.topAnchor] setActive:true];
     [[stackView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor] setActive:true];
-    [[stackView.leftAnchor constraintEqualToAnchor:self.leftAnchor] setActive:true];
-    [[stackView.rightAnchor constraintEqualToAnchor:self.rightAnchor] setActive:true];
+    [[stackView.leftAnchor constraintEqualToAnchor:self.leftAnchor constant:spacing] setActive:true];
+    [[stackView.rightAnchor constraintEqualToAnchor:self.rightAnchor constant:-spacing] setActive:true];
 }
 
 - (void)buttonTapped:(UIButton *)button {
     NSInteger buttonIndex = 0;
     for (UIButton *btn in _buttons) {
         [btn setTitleColor:_textColor forState:UIControlStateNormal];
+        
+        btn.backgroundColor = [UIColor clearColor];
+        btn.layer.borderWidth = _borderWidth;
         if (btn == button) {
             _selectedSegmentIndex = buttonIndex;
             CGFloat selectorStartPosition = (self.frame.size.width / _buttons.count) * buttonIndex ;
@@ -78,16 +99,42 @@
                 self.selector.frame = frame;
             }];
             [btn setTitleColor:_selectorTextColor forState:UIControlStateNormal];
+            if (_btStyle == BUTTONSTYLE_ELLIPSE) {
+                btn.backgroundColor = _selectorColor;
+                btn.layer.borderWidth = 0;
+            }
         }
         buttonIndex++;
     }
     [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
+- (UIButton *)configButtons {
+    UIButton *bt = [UIButton buttonWithType:UIButtonTypeSystem];
+    switch (_btStyle) {
+        case BUTTONSTYLE_FONTWITHUNDERLINE:
+            break;
+        case BUTTONSTYLE_ELLIPSE:
+            _borderWidth = 1.0;
+            bt = [UIButton buttonWithType:UIButtonTypeCustom];
+            bt.titleLabel.font = [UIFont systemFontOfSize:_fontSize];
+            bt.layer.cornerRadius = 10;
+            bt.layer.borderWidth = _borderWidth;
+            bt.layer.borderColor = [UIColor lightGrayColor].CGColor;
+            break;
+            
+        default:
+            break;
+    }
+    
+    return bt;
+}
+
 - (void)updateSegmentedControlSegs:(NSInteger)index {
     
     for (UIButton *btn in _buttons ){
         [btn setTitleColor:_textColor forState:UIControlStateNormal];
+        [btn setBackgroundColor:[UIColor whiteColor]];
     }
     
     CGFloat  selectorStartPosition = (self.frame.size.width / _buttons.count) * index;
@@ -100,6 +147,7 @@
     
     UIButton *bt = (UIButton *)_buttons[index];
     [bt setTitleColor:_selectorTextColor forState:UIControlStateNormal ];
+
     
 }
 
