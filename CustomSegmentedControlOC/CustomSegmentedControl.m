@@ -8,22 +8,33 @@
 
 #import "CustomSegmentedControl.h"
 
+IB_DESIGNABLE
+@interface CustomSegmentedControl()
+@property (nonatomic, strong) UIStackView *stackView;
+@end
+
 @implementation CustomSegmentedControl
+
+-(void)awakeFromNib {
+    [super awakeFromNib];
+    
+    [self updateView];
+    
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setupValues];
+    }
+    
+    return self;
+}
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        _buttons = @[].mutableCopy;
-        _selectedSegmentIndex = 0;
-        _borderWidth = 0;
-        _cornerRadius = 0;
-        _borderColor = UIColor.clearColor;
-        _commaSeperatedButtonTitles = @"";
-        _textColor = UIColor.lightGrayColor;
-        _fontSize  = 15;
-        _selectorColor = UIColor.darkGrayColor;
-        _selectorTextColor = UIColor.greenColor;
-        _btStyle = BUTTONSTYLE_FONTWITHUNDERLINE;
+        [self setupValues];
         [self updateView];
     }
     
@@ -34,6 +45,20 @@
     self = [self initWithFrame:frame];
     _btStyle = style;
     return self;
+}
+
+- (void)setupValues {
+    _buttons = @[].mutableCopy;
+    _selectedSegmentIndex = 0;
+    _borderWidth = 0;
+    _cornerRadius = 0;
+    _borderColor = UIColor.clearColor;
+    _commaSeperatedButtonTitles = @"";
+    _textColor = UIColor.lightGrayColor;
+    _fontSize  = 15;
+    _selectorColor = UIColor.darkGrayColor;
+    _selectorTextColor = UIColor.greenColor;
+    _btStyle = BUTTONSTYLE_FONTWITHUNDERLINE;
 }
 
 - (void)updateView {
@@ -58,29 +83,29 @@
     _selector.backgroundColor = _selectorColor;
     [self addSubview:_selector];
     
-    UIStackView *stackView = [[UIStackView alloc] initWithArrangedSubviews:_buttons];
-    stackView.axis = UILayoutConstraintAxisHorizontal;
-    stackView.alignment = UIStackViewAlignmentFill;
-    stackView.distribution = UIStackViewDistributionFillEqually;
+    self.stackView = [[UIStackView alloc] initWithArrangedSubviews:_buttons];
+    _stackView.axis = UILayoutConstraintAxisHorizontal;
+    _stackView.alignment = UIStackViewAlignmentFill;
+    _stackView.distribution = UIStackViewDistributionFillEqually;
     
     CGFloat spacing = 0;
     if (_btStyle == BUTTONSTYLE_ELLIPSE) {
-        spacing = 20;
+        spacing = 30;
         _selector.hidden = true;
         UIButton *btFirst = _buttons[0];
         btFirst.backgroundColor = _selectorColor;
         btFirst.layer.borderWidth = 0;
     }
     
-    stackView.spacing = spacing;
-    [self addSubview:stackView];
+    _stackView.spacing = spacing;
+    [self addSubview:_stackView];
     
-    stackView.translatesAutoresizingMaskIntoConstraints = false;
+    _stackView.translatesAutoresizingMaskIntoConstraints = false;
     
-    [[stackView.topAnchor constraintEqualToAnchor:self.topAnchor] setActive:true];
-    [[stackView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor] setActive:true];
-    [[stackView.leftAnchor constraintEqualToAnchor:self.leftAnchor constant:spacing] setActive:true];
-    [[stackView.rightAnchor constraintEqualToAnchor:self.rightAnchor constant:-spacing] setActive:true];
+    [[_stackView.topAnchor constraintEqualToAnchor:self.topAnchor] setActive:true];
+    [[_stackView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor] setActive:true];
+    [[_stackView.leftAnchor constraintEqualToAnchor:self.leftAnchor] setActive:true];
+    [[_stackView.rightAnchor constraintEqualToAnchor:self.rightAnchor] setActive:true];
 }
 
 - (void)buttonTapped:(UIButton *)button {
@@ -120,7 +145,7 @@
             bt.titleLabel.font = [UIFont systemFontOfSize:_fontSize];
             bt.layer.cornerRadius = 10;
             bt.layer.borderWidth = _borderWidth;
-            bt.layer.borderColor = [UIColor lightGrayColor].CGColor;
+            bt.layer.borderColor = _textColor.CGColor;
             break;
             
         default:
@@ -147,7 +172,7 @@
     
     UIButton *bt = (UIButton *)_buttons[index];
     [bt setTitleColor:_selectorTextColor forState:UIControlStateNormal ];
-
+    
     
 }
 
@@ -163,6 +188,11 @@
 - (void)setBorderColor:(UIColor *)borderColor {
     _borderColor = borderColor;
     self.layer.borderColor = borderColor.CGColor;
+}
+
+- (void)setBtStyle:(BUTTONSTYLE)btStyle {
+    _btStyle = btStyle;
+    [self updateView];
 }
 
 - (void)setCommaSeperatedButtonTitles:(NSString *)commaSeperatedButtonTitles {
