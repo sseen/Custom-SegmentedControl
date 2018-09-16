@@ -8,15 +8,20 @@
 
 #import <UIKit/UIKit.h>
 typedef enum {
-  BUTTONSTYLE_FONTWITHUNDERLINE,
-  BUTTONSTYLE_ELLIPSE
+    BUTTONSTYLE_FONTWITHUNDERLINE=0,
+    BUTTONSTYLE_ELLIPSE=1
 } BUTTONSTYLE;
 
 @interface CustomSegmentedControl : UIControl
 @property (nonatomic, strong) NSMutableArray *buttons;
 @property (nonatomic, strong) UIView *selector;
 @property (nonatomic, assign) NSInteger selectedSegmentIndex;
-@property (nonatomic, assign) BUTTONSTYLE btStyle;
+
+#if TARGET_INTERFACE_BUILDER
+@property (nonatomic, assign) IBInspectable NSInteger btStyle;
+#else
+@property (nonatomic)  BUTTONSTYLE btStyle;
+#endif
 
 
 @property (nonatomic, assign) IBInspectable CGFloat fontSize;
